@@ -58,8 +58,8 @@ export const Home = () => {
   const cleanFilters = () => {
     setFilter({
       search: "",
-      minPrice: 0,
-      maxPrice: 0,
+      minPrice: null,
+      maxPrice: null,
       dateInclusion: null,
     });
     setFilteredProducts(undefined)
