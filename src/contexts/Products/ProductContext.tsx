@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import { Cart } from '../../models/Card'
+import { Product } from '../../models/Product'
 
 export type ProductContextType = {
-    cart: Cart[];
-    setCart: React.Dispatch<React.SetStateAction<Cart[]>>;
+    products: Product[];
+    setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
 }
 
 export const ProductContext = createContext<ProductContextType>(null!)

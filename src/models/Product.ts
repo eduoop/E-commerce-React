@@ -3,4 +3,5 @@ export interface  Product {
     price: number;
     dateInclusion: string;
     image: string;
+    discount: number;
 }

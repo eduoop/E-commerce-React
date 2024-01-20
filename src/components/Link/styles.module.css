@@ -1,0 +1,32 @@
+.home_container_active_item {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    color: #333333;
+    border-bottom: 2px solid #EF7A0B;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.home_container_inactive_item {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #33333379;
+    border-bottom: 2px solid transparent;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .3s;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .home_container_active_item {
+        border: none
+    }
+}
