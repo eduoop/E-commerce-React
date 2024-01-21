@@ -21,6 +21,11 @@ export const CartResume = () => {
   const navigate = useNavigate()
   const { sumCardItems } = useContext(CartContext);
 
+  const splitValue = () => {
+    const sumAllCardItems = sumCardItems()
+    const splitValue = sumAllCardItems/10
+    return FilterIntegerValueToRealWithDiscount(splitValue)
+  }
 
   return (
     <Resume>
@@ -44,7 +49,7 @@ export const CartResume = () => {
         </InfoAndValueCredit>
 
         <span>
-          (em até <b>10x</b> de <b>R$ 929,90 sem juros</b>)
+          (em até <b>10x</b> de <b>{splitValue()} sem juros</b>)
         </span>
       </TotalCredit>
 
