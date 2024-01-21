@@ -65,6 +65,7 @@ export const IconContainer = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 0.8em;
+    cursor: pointer;
   }
 `;
 
@@ -169,6 +170,7 @@ export const PriceInput = styled(CurrencyInput)`
   background-color: white;
   border-radius: 4px;
   border: none;
+  width: 100px;
 
   &::placeholder {
     font-size: 16px;

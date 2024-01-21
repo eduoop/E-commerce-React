@@ -1,36 +1,6 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  background: rgb(242, 243, 244);
-`;
-
-export const OrangeBar = styled.div`
-  width: 100%;
-  height: 4px;
-  background-color: rgb(255, 101, 0);
-`;
-
-export const GeneralSeparator = styled.div`
-  display: flex;
-  gap: 2em;
-  height: 100%;
-  margin-top: 3em;
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-  }
-`;
-
-export const ListCartItems = styled.div`
-  width: 100%;
-  background-color: white;
-  padding: 2rem;
-`;
-
 export const Resume = styled.div`
-
   display: flex;
   flex-direction: column;
   width: 100%;

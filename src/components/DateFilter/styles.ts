@@ -19,6 +19,12 @@ export const StyledDatePicker = styled(DatePicker)`
     letter-spacing: 0.1px;
     padding: 8px 10px;
     padding-right: 0;
+
+    &::placeholder {
+      font-size: 16px;
+      color: #98a0a2 !important;
+      opacity: 1;
+    }
   }
 
   label {

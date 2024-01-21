@@ -1,4 +1,3 @@
-import React from "react";
 import { Product } from "../../models/Product";
 import {
   BuyButton,
@@ -17,13 +16,39 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
 import FilterIntegerValueToRealWithDiscount from "../../utils/FilterIntegerValueToRealWithDiscount";
 import FilterPercentToInteger from "../../utils/FilterPercentToInteger";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/Cart/CartContext";
+import { useNavigate } from "react-router-dom";
+import formatData from "../../utils/FormatData";
 
 type Props = {
   product: Product;
 };
 
 export const ProductCardMain = ({ product }: Props) => {
-  const inCart = false;
+  const { setCart, cart, removeFromCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const isItemInCart = (productId: number) => {
+    return cart.some((item) => item.id === productId);
+  };
+
+  const itemIsInCart = isItemInCart(product.id);
+
+  const addInCart = () => {
+    setCart((oldItems) => [
+      ...oldItems,
+      {
+        dateInclusion: product.dateInclusion,
+        discount: product.discount,
+        id: product.id,
+        image: product.image,
+        name: product.name,
+        price: product.price,
+        quantity: 1,
+      },
+    ]);
+  };
 
   return (
     <CardContainer>
@@ -38,8 +63,11 @@ export const ProductCardMain = ({ product }: Props) => {
           </InStock>
         </div>
         <FaCartShopping
+          onClick={() =>
+            itemIsInCart ? removeFromCart(product.id) : addInCart()
+          }
           cursor="pointer"
-          color={inCart ? "#f17a28" : "#7f858d"}
+          color={itemIsInCart ? "#f17a28" : "#7f858d"}
           fontSize={20}
         />
       </CardTopItems>
@@ -51,20 +79,26 @@ export const ProductCardMain = ({ product }: Props) => {
           <h2>{product.name}</h2>
 
           <ClickedAreaInfosPrices>
-            <OldPrice>{FilterIntegerValueToRealWithDiscount(product.price)}</OldPrice>
-            <Price>{FilterIntegerValueToRealWithDiscount(product.price, product.discount)}</Price>
-            <PixInfo>À vista no PIX</PixInfo>
+            <OldPrice>
+              {FilterIntegerValueToRealWithDiscount(product.price)}
+            </OldPrice>
+            <Price>
+              {FilterIntegerValueToRealWithDiscount(
+                product.price,
+                product.discount
+              )}
+            </Price>
+            <PixInfo>Pulblicado em: {formatData(product)}</PixInfo>
           </ClickedAreaInfosPrices>
         </ClickedAreaInfos>
       </ClickedArea>
 
-      <BuyButton>
-      <FaCartShopping
-          cursor="pointer"
-          color={'white'}
-          fontSize={20}
-        />
-        Comprar</BuyButton>
+      <BuyButton
+        onClick={() => (itemIsInCart ? navigate("/cart") : addInCart())}
+      >
+        <FaCartShopping cursor="pointer" color={"white"} fontSize={20} />
+        {itemIsInCart ? "Finalizar" : "Comprar"}
+      </BuyButton>
     </CardContainer>
   );
 };

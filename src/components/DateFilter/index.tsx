@@ -33,7 +33,6 @@ export const DateFilter = ({ filter, setFilter }: Props) => {
         openTo="day"
         views={["year", "month", "day"]}
         value={filter.dateInclusion}
-        label="Data de postagem"
         onChange={(newValue: unknown) => {
             setFilter((prevFilters) => ({
                 ...prevFilters!,
