@@ -18,11 +18,16 @@ export const Navbar = styled.nav`
   width: 100%;
   min-height: 110px;
   background-color: rgb(0, 96, 177);
-  padding: 0.5em 40px;
+  padding: 0.5em 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: 1em;
+
+  @media (min-width: 600px) {
+    padding: 0.5em 40px;
+    gap: 1em;
+  }
 `;
 
 export const IconContainer = styled.div`
@@ -69,6 +74,36 @@ export const IconContainer = styled.div`
   }
 `;
 
+export const IconContainerHome = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  display: none;
+
+  a {
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    transition: 0.2s;
+    &:hover {
+      background: #e27140;
+    }
+  }
+
+  svg {
+    color: #fff;
+  }
+
+  @media (min-width: 600px) {
+    display: block;
+  }
+`;
+
 export const SearchContainer = styled.form`
   display: flex;
   align-items: center;
@@ -78,7 +113,7 @@ export const SearchContainer = styled.form`
   max-width: 1200px;
 
   input {
-    font-size: 18px;
+    font-size: 16px;
     position: relative;
     font-weight: 500;
     height: 100%;
@@ -100,7 +135,7 @@ export const SearchContainer = styled.form`
     border: none;
     outline: none;
     background: #fc6b0f;
-    padding: 0em 2em;
+    padding: 0em 1em;
     border-radius: 0em 0.25em 0.25em 0em;
     transition: 0.5s;
 
@@ -112,17 +147,31 @@ export const SearchContainer = styled.form`
       color: #fff;
     }
   }
+
+  @media (min-width: 600px) {
+    button {
+      padding: 0em 2em;
+    }
+
+    input {
+      font-size: 18px;
+    }
+  }
 `;
 
 export const Filters = styled.div`
   width: 100%;
-  padding: 0.8em 40px;
+  padding: 0.8em 20px;
   min-height: 110px;
   background-color: rgb(255, 101, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.8em;
+
+  @media (min-width: 600px) {
+    padding: 0.8em 40px;
+  }
 `;
 
 export const FilterBy = styled.h2<TitleProps>`
@@ -134,8 +183,17 @@ export const FilterBy = styled.h2<TitleProps>`
 export const AllFiltersContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: 3em;
+  gap: .5em;
   align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: 600px) {
+    gap: 2em;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 3em;
+  }
 `;
 
 export const FilterContainer = styled.div`
@@ -149,7 +207,31 @@ export const Line = styled.div`
   border-radius: 17px;
   width: 60px;
   height: 3px;
+  display: none;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
 `;
+
+export const ButtonsContainer = styled.div `
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+  width: 100%;
+  padding-right: 0.5em;
+
+  @media (min-width: 600px) {
+    margin-top: 0;
+    width: auto;
+    padding-right: 0;
+  }
+`
 
 export const PricesContainer = styled.div`
   display: flex;
@@ -188,21 +270,25 @@ export const SetFiltersButton = styled.button<ButtonProps>`
   background-color: ${(props) => props.bgColor};
   border: none;
   border-radius: 0.25em;
-  padding: 1em 2em;
+  padding: .5em 2em;
   outline: none;
   transition: 0.3s;
 
   &:hover {
     opacity: 0.8;
   }
+
+  @media (min-width: 600px) {
+    padding: 1em 2em;
+  }
 `;
 
-export const Orders = styled.div `
+export const Orders = styled.div`
   display: flex;
   flex-direction: column;
-  gap: .5em;
+  gap: 0.5em;
   padding: 2em 0 0 2em;
-`
+`;
 
 export const OrderTitle = styled.h1`
   display: flex;
@@ -212,11 +298,11 @@ export const OrderTitle = styled.h1`
   font-size: 1.2em;
   line-height: 1.5rem;
   font-weight: 700;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 `;
 
 export const OrderContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 2em;
-`
+`;

@@ -200,7 +200,6 @@ export const TotalPix = styled.div`
   width: 100%;
   height: fit-content;
   padding: 1rem;
-  -webkit-box-align: center;
   align-items: center;
   background: rgb(229, 255, 241);
   color: rgb(31, 144, 80);
@@ -230,7 +229,6 @@ export const TotalPixPrice = styled.div`
   }
 
   @media (min-width: 1024px) {
-    -webkit-box-align: center;
     align-items: center;
   }
 `;
@@ -239,9 +237,7 @@ export const PayButton = styled.button`
   width: 100%;
   height: 48px;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   border: 1px solid rgb(255, 101, 0);
   background-color: rgb(255, 101, 0);
@@ -260,9 +256,7 @@ export const ShoppingButton = styled.button`
   width: 100%;
   height: 48px;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   border: 1px solid rgb(255, 101, 0);
   background-color: rgb(255, 255, 255);

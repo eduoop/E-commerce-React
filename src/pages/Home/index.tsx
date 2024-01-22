@@ -15,6 +15,8 @@ import {
   OrderTitle,
   Orders,
   OrderContainer,
+  IconContainerHome,
+  ButtonsContainer,
 } from "./styles";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
@@ -167,7 +169,7 @@ export const Home = () => {
   };
 
   const parseDate = (dateString: string): Date => {
-    const [day, month, year] = dateString.split('-').map(Number);
+    const [day, month, year] = dateString.split("-").map(Number);
     return new Date(year, month - 1, day);
   };
 
@@ -175,10 +177,18 @@ export const Home = () => {
     const { price, date } = order;
 
     const compareFunction = (productA: Product, productB: Product) => {
-      const itemAPriceWithDiscount = FilterIntegerValueWithDiscount(productA.price, productA.discount)
-      const itemBPriceWithDiscount = FilterIntegerValueWithDiscount(productB.price, productB.discount)
+      const itemAPriceWithDiscount = FilterIntegerValueWithDiscount(
+        productA.price,
+        productA.discount
+      );
+      const itemBPriceWithDiscount = FilterIntegerValueWithDiscount(
+        productB.price,
+        productB.discount
+      );
       if (price !== "none") {
-        return price === "increase" ? itemAPriceWithDiscount - itemBPriceWithDiscount : itemBPriceWithDiscount - itemAPriceWithDiscount;
+        return price === "increase"
+          ? itemAPriceWithDiscount - itemBPriceWithDiscount
+          : itemBPriceWithDiscount - itemAPriceWithDiscount;
       } else {
         const dateA = parseDate(productA.dateInclusion).getTime();
         const dateB = parseDate(productB.dateInclusion).getTime();
@@ -187,19 +197,19 @@ export const Home = () => {
     };
 
     const orderArray = [...produtos].sort(compareFunction);
-    return orderArray
+    return orderArray;
   };
 
-  console.log(order)
+  console.log(order);
 
   return (
     <MainContainer>
       <Navbar>
-        <IconContainer onClick={() => setFilteredProducts(undefined)}>
+        <IconContainerHome onClick={() => setFilteredProducts(undefined)}>
           <NavLink to="/">
             <GoHomeFill fontSize={40} />
           </NavLink>
-        </IconContainer>
+        </IconContainerHome>
 
         <SearchContainer onSubmit={(e) => search(e)}>
           <input
@@ -228,9 +238,6 @@ export const Home = () => {
       </Navbar>
 
       <Filters>
-        {/* <FilterBy fontSize="25px" fontWeight="700">
-          Filtrar Por:
-        </FilterBy> */}
         <AllFiltersContainer>
           <FilterContainer>
             <FilterBy fontSize="16px" fontWeight="600">
@@ -273,20 +280,22 @@ export const Home = () => {
 
           <Line />
 
-          <SetFiltersButton
-            onClick={search}
-            bgColor="rgb(0, 96, 177)"
-            textColor="white"
-          >
-            Buscar
-          </SetFiltersButton>
-          <SetFiltersButton
-            onClick={cleanFilters}
-            bgColor="white"
-            textColor="rgb(0, 96, 177)"
-          >
-            Limpar
-          </SetFiltersButton>
+          <ButtonsContainer>
+            <SetFiltersButton
+              onClick={search}
+              bgColor="rgb(0, 96, 177)"
+              textColor="white"
+            >
+              Buscar
+            </SetFiltersButton>
+            <SetFiltersButton
+              onClick={cleanFilters}
+              bgColor="white"
+              textColor="rgb(0, 96, 177)"
+            >
+              Limpar
+            </SetFiltersButton>
+          </ButtonsContainer>
         </AllFiltersContainer>
       </Filters>
 

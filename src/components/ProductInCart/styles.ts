@@ -46,7 +46,6 @@ export const Title = styled.h1`
   line-height: 1.125rem;
   font-weight: 700;
   color: rgb(66, 70, 77);
-  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
   text-decoration: none;

@@ -100,7 +100,6 @@ export const OldPrice = styled.span`
   line-height: 1.375rem;
   font-weight: 400;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   height: 0.75rem;
   color: rgb(127, 133, 141);
@@ -109,7 +108,6 @@ export const OldPrice = styled.span`
 
 export const PixInfo = styled.span`
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -120,7 +118,6 @@ export const PixInfo = styled.span`
 
 export const Price = styled.span`
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   margin-bottom: 0.25rem;
   margin-top: 0.25rem;
@@ -137,9 +134,7 @@ export const BuyButton = styled.span`
   line-height: 1.125rem;
   font-weight: 700;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   width: 100%;
   color: rgb(255, 255, 255);
