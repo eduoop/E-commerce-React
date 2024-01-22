@@ -32,7 +32,7 @@ Linux, macOS e Windows:
 <cd E-commerce-React>
 ```
 
-## 3. Instale as dependências usando Yarn:
+## 3. Instale as dependências usando o yarn:
 
 ```
 <yarn>
@@ -48,7 +48,7 @@ Para usar o E-commerce-React, siga estas etapas:
 
 ## 🤝 Criador
 
-Feito com o ❤️ por:
+Feito com o ❤️ para a Movisis:
 
 <table>
   <tr>
