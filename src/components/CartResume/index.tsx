@@ -15,16 +15,31 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/Cart/CartContext";
 import FilterIntegerValueToRealWithDiscount from "../../utils/FilterIntegerValueToRealWithDiscount";
+import { toast } from "react-toastify";
 
 export const CartResume = () => {
 
   const navigate = useNavigate()
-  const { sumCardItems } = useContext(CartContext);
+  const { sumCardItems, setCart, cart } = useContext(CartContext);
 
   const splitValue = () => {
     const sumAllCardItems = sumCardItems()
     const splitValue = sumAllCardItems/10
     return FilterIntegerValueToRealWithDiscount(splitValue)
+  }
+
+  const buyProducts = () => {
+    if(cart.length > 0) {
+      navigate('/')
+      setCart([])
+      toast.success('Pedido realizado!', {
+        position: 'bottom-right'
+      })
+    } else {
+      toast.error('Você não possue produtos no carrinho', {
+        position: 'bottom-right'
+      })
+    }
   }
 
   return (
@@ -65,7 +80,7 @@ export const CartResume = () => {
         </TotalPixPrice>
       </TotalPix>
 
-      <PayButton>Ir para o pagamento</PayButton>
+      <PayButton onClick={() => buyProducts()}>Finalizar Compra</PayButton>
       <ShoppingButton onClick={() => navigate("/")}>
         Comprar mais
       </ShoppingButton>
