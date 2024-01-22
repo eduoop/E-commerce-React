@@ -14,16 +14,16 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você instalou a versão 2.39 ou superior do `<Git>`
 - Você tem uma máquina `<Windows / Linux / Mac>`.
 
-## 🚀 Instalando <E-commerce-React>
+## 🚀 Instalando
 
-Para instalar o <E-commerce-React>, siga estas etapas:
+Para instalar o E-commerce-React, siga estas etapas:
 
 Linux, macOS e Windows:
 
 ## 1. Clone o projeto do GitHub:
 
 ```
-<git clone https://github.com/seu-usuario/E-commerce-React.git>
+<git clone https://github.com/eduoop/E-commerce-React.git>
 ```
 
 ## 2. Entre na pasta do projeto:
@@ -38,9 +38,9 @@ Linux, macOS e Windows:
 <yarn>
 ```
 
-## ☕ Usando o <E-commerce-React>
+## ☕ Usando
 
-Para usar o <E-commerce-React>, siga estas etapas:
+Para usar o E-commerce-React, siga estas etapas:
 
 ```
 <yarn run dev> ou <npm run dev>
