@@ -12,6 +12,9 @@ import {
   PriceInput,
   PricesContainer,
   SetFiltersButton,
+  OrderTitle,
+  Orders,
+  OrderContainer,
 } from "./styles";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
@@ -23,6 +26,7 @@ import { ProductContext } from "../../contexts/Products/ProductContext";
 import { Product } from "../../models/Product";
 import { CartContext } from "../../contexts/Cart/CartContext";
 import FilterIntegerValueWithDiscount from "../../utils/FilterIntegerValueWithDiscount";
+import { OrderBy } from "../../components/OrderBy";
 
 export const Home = () => {
   // const [search, setSearch] = useState("");
@@ -44,9 +48,16 @@ export const Home = () => {
     dateInclusion: null,
   });
   const [filteredProducts, setFilteredProducts] = useState<Product[]>();
+  const [order, setOrder] = useState<{
+    price: "none" | "increase" | "decrease";
+    date: "none" | "increase" | "decrease";
+  }>({
+    date: "none",
+    price: "none",
+  });
   const { products } = useContext(ProductContext);
   const { cart } = useContext(CartContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function extractNumbers(str: string | null | undefined): number | null {
     if (str == null || str === "") {
@@ -155,10 +166,34 @@ export const Home = () => {
     setFilteredProducts(SetSearchAndFilter(products, filter));
   };
 
+  const parseDate = (dateString: string): Date => {
+    const [day, month, year] = dateString.split('-').map(Number);
+    return new Date(year, month - 1, day);
+  };
+
+  const ordenarArray = (produtos: Product[]) => {
+    const { price, date } = order;
+
+    const compareFunction = (productA: Product, productB: Product) => {
+      const itemAPriceWithDiscount = FilterIntegerValueWithDiscount(productA.price, productA.discount)
+      const itemBPriceWithDiscount = FilterIntegerValueWithDiscount(productB.price, productB.discount)
+      if (price !== "none") {
+        return price === "increase" ? itemAPriceWithDiscount - itemBPriceWithDiscount : itemBPriceWithDiscount - itemAPriceWithDiscount;
+      } else {
+        const dateA = parseDate(productA.dateInclusion).getTime();
+        const dateB = parseDate(productB.dateInclusion).getTime();
+        return date === "increase" ? dateA - dateB : dateB - dateA;
+      }
+    };
+
+    const orderArray = [...produtos].sort(compareFunction);
+    return orderArray
+  };
+
+  console.log(order)
+
   return (
     <MainContainer>
-      {/* <Link Name="Home" to="/"/>
-      <Link Name="Cart" to="/cart"/> */}
       <Navbar>
         <IconContainer onClick={() => setFilteredProducts(undefined)}>
           <NavLink to="/">
@@ -188,7 +223,7 @@ export const Home = () => {
             <FaCartShopping fontSize={35} />
           </NavLink>
 
-          <span onClick={() => navigate('/cart')}>{cart.length}</span>
+          <span onClick={() => navigate("/cart")}>{cart.length}</span>
         </IconContainer>
       </Navbar>
 
@@ -255,8 +290,27 @@ export const Home = () => {
         </AllFiltersContainer>
       </Filters>
 
+      <Orders>
+        <OrderTitle>Ordenar por:</OrderTitle>
+
+        <OrderContainer>
+          <OrderBy
+            order={order}
+            setOrder={setOrder}
+            title="Preço"
+            filter="price"
+          />
+          <OrderBy
+            order={order}
+            setOrder={setOrder}
+            title="Data"
+            filter="date"
+          />
+        </OrderContainer>
+      </Orders>
+
       <ListProductsMain
-        products={filteredProducts ? filteredProducts : products}
+        products={ordenarArray(filteredProducts ? filteredProducts : products)}
       />
     </MainContainer>
   );

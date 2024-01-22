@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CurrencyInput from 'react-currency-input-field';
+import CurrencyInput from "react-currency-input-field";
 interface TitleProps {
   fontSize: string;
   fontWeight: string;
@@ -196,3 +196,27 @@ export const SetFiltersButton = styled.button<ButtonProps>`
     opacity: 0.8;
   }
 `;
+
+export const Orders = styled.div `
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  padding: 2em 0 0 2em;
+`
+
+export const OrderTitle = styled.h1`
+  display: flex;
+  align-items: center;
+  color: rgb(66, 70, 77);
+  gap: 0.5rem;
+  font-size: 1.2em;
+  line-height: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .5em;
+`;
+
+export const OrderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2em;
+`
