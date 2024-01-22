@@ -11,6 +11,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 - Você instalou a versão 20.9.0 ou superior do `<NodeJS>`
 - Você instalou a versão 1.22.19 ou superior do `<Yarn>`
+- Você instalou a versão 2.39 ou superior do `<Git>`
 - Você tem uma máquina `<Windows / Linux / Mac>`.
 
 ## 🚀 Instalando <E-commerce-React>
@@ -22,18 +23,16 @@ Linux, macOS e Windows:
 ## 1. Clone o projeto do GitHub:
 
 ```
-bash
-git clone https://github.com/seu-usuario/E-commerce-React.git
+<git clone https://github.com/seu-usuario/E-commerce-React.git>
 ```
 
 ## 2. Entre na pasta do projeto:
 
 ```
-cd E-commerce-React
+<cd E-commerce-React>
 ```
 
-## 3. Instale as dependências usando Yarn::
-
+## 3. Instale as dependências usando Yarn:
 
 ```
 <yarn>
