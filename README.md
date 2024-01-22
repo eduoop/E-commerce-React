@@ -40,7 +40,7 @@ Feito com o ❤️ por:
   <tr>
     <td align="center">
       <a href="#" title="defina o titulo do link">
-        <img src="https://avatars.githubusercontent.com/u/85969484?v=4" width="100px;" alt="Foto do Eduardo Meneses no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/85969484?s=400&u=b0e89e575a7cb91fc9f8a69e126a9d7587aa9478&v=4" width="100px;" alt="Foto do Eduardo Meneses no GitHub"/><br>
         <sub>
           <b>Eduardo Meneses</b>
         </sub>
