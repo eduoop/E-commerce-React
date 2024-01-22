@@ -161,7 +161,7 @@ export const SearchContainer = styled.form`
 
 export const Filters = styled.div`
   width: 100%;
-  padding: 0.8em 20px;
+  padding: 0.8em 30px 0.8em 10px;
   min-height: 110px;
   background-color: rgb(255, 101, 0);
   display: flex;
@@ -183,7 +183,7 @@ export const FilterBy = styled.h2<TitleProps>`
 export const AllFiltersContainer = styled.div`
   width: 100%;
   display: flex;
-  gap: .5em;
+  gap: 0.5em;
   align-items: center;
   flex-wrap: wrap;
 
@@ -200,7 +200,20 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    width: auto;
+  }
 `;
+
+export const DateInputContainer = styled.div`
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: 200px;
+  }
+`
 
 export const Line = styled.div`
   background-color: white;
@@ -218,20 +231,18 @@ export const Line = styled.div`
   }
 `;
 
-export const ButtonsContainer = styled.div `
+export const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
   margin-top: 1em;
   width: 100%;
-  padding-right: 0.5em;
 
   @media (min-width: 600px) {
     margin-top: 0;
     width: auto;
-    padding-right: 0;
   }
-`
+`;
 
 export const PricesContainer = styled.div`
   display: flex;
@@ -252,10 +263,14 @@ export const PriceInput = styled(CurrencyInput)`
   background-color: white;
   border-radius: 4px;
   border: none;
-  width: 100px;
+  width: 50%;
 
   &::placeholder {
     font-size: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100px;
   }
 `;
 
@@ -270,9 +285,10 @@ export const SetFiltersButton = styled.button<ButtonProps>`
   background-color: ${(props) => props.bgColor};
   border: none;
   border-radius: 0.25em;
-  padding: .5em 2em;
+  padding: 0.5em;
   outline: none;
   transition: 0.3s;
+  width: 50%;
 
   &:hover {
     opacity: 0.8;
@@ -280,6 +296,7 @@ export const SetFiltersButton = styled.button<ButtonProps>`
 
   @media (min-width: 600px) {
     padding: 1em 2em;
+    width: auto;
   }
 `;
 

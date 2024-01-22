@@ -10,6 +10,7 @@ export const StyledDatePicker = styled(DatePicker)`
   input {
     color: #98a0a2;
     text-align: center;
+    width: 100%;
     /* Subtitle/02 */
     font-family: Poppins;
     font-size: 13px;

@@ -17,6 +17,7 @@ import {
   OrderContainer,
   IconContainerHome,
   ButtonsContainer,
+  DateInputContainer,
 } from "./styles";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
@@ -243,9 +244,9 @@ export const Home = () => {
             <FilterBy fontSize="16px" fontWeight="600">
               Data de postagem:
             </FilterBy>
-            <div style={{ width: "200px" }}>
+            <DateInputContainer>
               <DateFilter filter={filter} setFilter={setFilter} />
-            </div>
+            </DateInputContainer>
           </FilterContainer>
 
           <Line />
@@ -282,18 +283,18 @@ export const Home = () => {
 
           <ButtonsContainer>
             <SetFiltersButton
-              onClick={search}
-              bgColor="rgb(0, 96, 177)"
-              textColor="white"
-            >
-              Buscar
-            </SetFiltersButton>
-            <SetFiltersButton
               onClick={cleanFilters}
               bgColor="white"
               textColor="rgb(0, 96, 177)"
             >
               Limpar
+            </SetFiltersButton>
+            <SetFiltersButton
+              onClick={search}
+              bgColor="rgb(0, 96, 177)"
+              textColor="white"
+            >
+              Buscar
             </SetFiltersButton>
           </ButtonsContainer>
         </AllFiltersContainer>
