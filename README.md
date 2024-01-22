@@ -19,6 +19,21 @@ Para instalar o <E-commerce-React>, siga estas etapas:
 
 Linux, macOS e Windows:
 
+## 1. Clone o projeto do GitHub:
+
+```
+bash
+git clone https://github.com/seu-usuario/E-commerce-React.git
+```
+
+## 2. Entre na pasta do projeto:
+
+```
+cd E-commerce-React
+```
+
+## 3. Instale as dependências usando Yarn::
+
 
 ```
 <yarn>
