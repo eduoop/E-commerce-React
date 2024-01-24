@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import { ProductContext } from "./ProductContext";
 import { Product } from '../../models/Product';
 
 export const ProductProvider = ({ children }: { children: JSX.Element }) => {
 
-    const [products, setProducts] = useState<Product[]>([
+    const products: Product[] = [
       {
         id: 1,
         dateInclusion: '26-07-2004',
@@ -101,10 +100,10 @@ export const ProductProvider = ({ children }: { children: JSX.Element }) => {
         price: 219.99,
         discount: 0.06
       },
-    ])
+    ]
 
     return (
-        <ProductContext.Provider value={{ products, setProducts }}>
+        <ProductContext.Provider value={{ products }}>
           {children}
         </ProductContext.Provider>
       );
